@@ -3,6 +3,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['res.cloudinary.com', 'avatar.vercel.sh'],
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'development',
   },
@@ -11,7 +14,7 @@ const nextConfig = {
 const moduleConfig = {
   pwa: {
     dest: 'public',
-    // disable: process.env.NODE_ENV === 'development',
+    disable: process.env.NODE_ENV === 'development',
     register: true,
   },
 };
@@ -25,14 +28,3 @@ module.exports = () => {
   });
   return config;
 };
-// /** @type {import('next').NextConfig} */
-
-// const withPWA = require('next-pwa')({
-//   dest: 'public',
-//   register: true,
-//   skipWaiting: true,
-// });
-
-// module.exports = withPWA({
-//   reactStrictMode: true,
-// });
